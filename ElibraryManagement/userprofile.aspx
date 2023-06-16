@@ -171,7 +171,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="100px" src="imgs/books.png"/>
+                                    <img width="100px" src="imgs/books1.png"/>
                                 </center>
                             </div>
                         </div>
@@ -191,12 +191,24 @@
                             </div>
                             </center>
                         </div>
+
                         <br />
+
                         <div class="row">
                             <div class="col">
                                 <hr/>
                             </div>
                         </div>
+                        <br />
+
+                        <div class="row">
+                            <div class="col">
+                                <asp:GridView class="table table-striped" ID="GridView1" runat="server"></asp:GridView>
+                            </div>
+                        </div>
+
+                        <br />
+
                     </div>
                 </div>
             </div>
