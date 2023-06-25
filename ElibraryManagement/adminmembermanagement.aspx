@@ -1,10 +1,17 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="adminmembermanagement.aspx.cs" Inherits="ElibraryManagement.adminmembermanagement" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            $(".table").prepend($("<thead></thead>").append($(this).find("tr:first"))).dataTable();
+        });
+
+    </script>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-5">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -29,7 +36,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                     <asp:TextBox class="form-control" ID="TextBox2" runat="server" placeholder="ID"></asp:TextBox>
-                                    <asp:Button class="btn btn-primary" ID="Button4" runat="server" Text="GO" />
+                                    <asp:Button class="btn btn-primary" ID="Button4" runat="server" Text="GO" OnClick="Button4_Click" />
                                     </div>
                                 </div>
                             </div>
@@ -46,9 +53,9 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                     <asp:TextBox class="form-control m-1" ID="TextBox1" runat="server" placeholder="Account Status" ReadOnly="True"></asp:TextBox>
-                                        <asp:LinkButton class="btn btn-success m-1" ID="LinkButton1" runat="server" Text="A"><i class="fas fa-check-circle"></i></asp:LinkButton>
-                                        <asp:LinkButton class="btn btn-warning m-1" ID="LinkButton2" runat="server" Text="P"><i class="fas fa-pause-circle"></i></asp:LinkButton>
-                                        <asp:LinkButton class="btn btn-danger m-1" ID="LinkButton3" runat="server" Text="R"><i class="fas fa-times-circle"></i></asp:LinkButton>
+                                        <asp:LinkButton class="btn btn-success m-1" ID="LinkButton1" runat="server" Text="A" OnClick="LinkButton1_Click"><i class="fas fa-check-circle"></i></asp:LinkButton>
+                                        <asp:LinkButton class="btn btn-warning m-1" ID="LinkButton2" runat="server" Text="P" OnClick="LinkButton2_Click"><i class="fas fa-pause-circle"></i></asp:LinkButton>
+                                        <asp:LinkButton class="btn btn-danger m-1" ID="LinkButton3" runat="server" Text="R" OnClick="LinkButton3_Click"><i class="fas fa-times-circle"></i></asp:LinkButton>
                                     </div>
                                 </div>
                             </div>
@@ -107,15 +114,15 @@
                         
                         <div class="row">
                             <div class="col-8 mx-auto">
-                                    <asp:Button class="btn btn-danger w-100 btn-lg" ID="Button2" runat="server" Text="Delete User Permanently" />
+                                    <asp:Button class="btn btn-danger w-100 btn-lg" ID="Button2" runat="server" Text="Delete User Permanently" OnClick="Button2_Click" />
                             </div>
                         </div>
                     </div>
-                <a href="homepage.aspx"> << Back to Home</a><br /><br />
             </div>
+                <a class="link-underline-light" href="homepage.aspx"> << Back to Home</a><br /><br />
           </div>
 
-            <div class="col-md-6">
+            <div class="col-md-7">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
@@ -127,8 +134,19 @@
                         </div><br />
 
                         <div class="row">
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:eLibraryDBConnectionString %>" SelectCommand="SELECT * FROM [MemberMaster]"></asp:SqlDataSource>
                             <div class="col">
-                                <asp:GridView class="table table-striped" ID="GridView1" runat="server"></asp:GridView>
+                                <asp:GridView class="table table-striped table-bordered" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="MemberId" DataSourceID="SqlDataSource1">
+                                    <Columns>
+                                        <asp:BoundField DataField="MemberId" HeaderText="ID" ReadOnly="True" SortExpression="MemberId" />
+                                        <asp:BoundField DataField="FullName" HeaderText="Name" SortExpression="FullName" />
+                                        <asp:BoundField DataField="AccountStatus" HeaderText="Account Status" SortExpression="AccountStatus" />
+                                        <asp:BoundField DataField="ContactNo" HeaderText="Contact No" SortExpression="ContactNo" />
+                                        <asp:BoundField DataField="Email" HeaderText="Email" SortExpression="Email" />
+                                        <asp:BoundField DataField="State" HeaderText="State" SortExpression="State" />
+                                        <asp:BoundField DataField="City" HeaderText="City" SortExpression="City" />
+                                    </Columns>
+                                </asp:GridView>
                             </div>
                         </div><br />  
                    </div>

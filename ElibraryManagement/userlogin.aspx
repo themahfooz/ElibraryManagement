@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="userlogin.aspx.cs" Inherits="ElibraryManagement.userlogin" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
@@ -10,7 +11,7 @@
                         <div class="row">
                             <div class="col">
                                 <center>
-                                    <img width="150px" src="imgs/generaluser.png"/>
+                                    <img width="150px" src="imgs/generaluser.png" />
                                 </center>
                             </div>
                         </div>
@@ -22,7 +23,7 @@
                             </div>
                         </div>
                         <br />
-                       
+
                         <div class="row">
                             <div class="col">
                                 <div class="form-group">
@@ -34,18 +35,20 @@
                                 </div>
                                 <br />
                                 <div class="form-group">
-                                    <asp:Button class="btn btn-success w-100 btn-lg" ID="Button1" runat="server" Text="Login" />
+                                    <asp:Button class="btn btn-success w-100 btn-lg" ID="Button1" runat="server" Text="Login" OnClick="Button1_Click" />
                                 </div>
                                 <br />
                                 <div class="form-group">
-                                    <a href="usersignup.aspx"><input class="btn btn-info w-100 btn-lg" id="Button2" type="button" value="Sign Up" /></a>
+                                    <a href="usersignup.aspx">
+                                        <input class="btn btn-info w-100 btn-lg" id="Button2" type="button" value="Sign Up" /></a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <a href="homepage.aspx"> << Back to Home</a><br /><br />
+                <a class="link-underline-light" href="homepage.aspx"><< Back to Home</a><br />
+                <br />
             </div>
         </div>
     </div>

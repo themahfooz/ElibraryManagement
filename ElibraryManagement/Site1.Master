@@ -13,7 +13,7 @@
     <script src="Bootstrap/js/jquery-3.4.1.slim.min.js"></script>
     <script src="Bootstrap/js/popper.min.js"></script>
     <script src="Bootstrap/js/bootstrap.min.js"></script>
-
+    <script src="datatables/js/dataTables.min.js"></script>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -21,11 +21,11 @@
     <form id="form1" runat="server">
         <div class="container-fluid">
 
-            <nav class ="navbar navbar-expand-lg navbar-light">
+            <nav class="navbar navbar-expand-lg navbar-light">
                 <a class="navbar-brand" href="#">
-                   <img src="imgs/books.png" width="30" height="30"/>
-                 E-Library
-               </a>
+                    <img src="imgs/books.png" width="30" height="30" />
+                    E-Library
+                </a>
 
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -36,17 +36,17 @@
                         <li class="nav-item active">
                             <a class="nav-link" href="homepage.aspx">Home</a>
                         </li>
-                         <li class="nav-item active">
+                        <li class="nav-item active">
                             <a class="nav-link" href="#">About us</a>
                         </li>
-                         <li class="nav-item active">
+                        <li class="nav-item active">
                             <a class="nav-link" href="#">Terms</a>
                         </li>
                     </ul>
 
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton4" runat="server" >View Books</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="LinkButton4" runat="server">View Books</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
                             <asp:LinkButton class="nav-link" ID="LinkButton1" runat="server" OnClick="LinkButton1_Click">User Login</asp:LinkButton>
@@ -55,7 +55,7 @@
                             <asp:LinkButton class="nav-link" ID="LinkButton2" runat="server" OnClick="LinkButton2_Click">Sign Up</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
-                            <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server" Visible="False">Logout</asp:LinkButton>
+                            <asp:LinkButton class="nav-link" ID="LinkButton3" runat="server" Visible="False" OnClick="LinkButton3_Click">Logout</asp:LinkButton>
                         </li>
                         <li class="nav-item active">
                             <asp:LinkButton class="nav-link" ID="LinkButton7" runat="server" Visible="False">Hello User</asp:LinkButton>
@@ -68,11 +68,10 @@
 
         <div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-
             </asp:ContentPlaceHolder>
         </div>
 
-                 <!-- Footer -->
+        <!-- Footer -->
         <footer>
             <div id="footer1" class="container-fluid">
                 <div class="row">
@@ -98,7 +97,7 @@
             <div id="footer2" class="container-fluid">
                 <div class="row">
                     <div class="col-xs-12 col-sm-12 col-md-12 text-center">
-                        <p style="color:whitesmoke">&copy All right Reversed. <a class="footerlinks" href="#" target="_blank">Mahfooz Alam</a></p>
+                        <p style="color: whitesmoke">&copy All right Reversed. <a class="footerlinks" href="#" target="_blank">Mahfooz Alam</a></p>
                     </div>
                 </div>
             </div>

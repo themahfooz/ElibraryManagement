@@ -38,7 +38,7 @@
                                 <div class="form-group">
                                     <div class="input-group">
                                         <asp:TextBox class="form-control" ID="TextBox2" runat="server" placeholder="ID"></asp:TextBox>
-                                        <asp:Button class="btn btn-primary" ID="Button4" runat="server" Text="GO" />
+                                        <asp:Button class="btn btn-primary" ID="Button4" runat="server" Text="GO" OnClick="Button4_Click" />
                                     </div>
                                 </div>
                             </div>
@@ -184,19 +184,18 @@
 
                         <div class="row">
                             <div class="col-md-4">
-                                <asp:Button class="btn btn-success w-100 btn-lg" ID="Button1" runat="server" Text="Add" />
+                                <asp:Button class="btn btn-success w-100 btn-lg" ID="Button1" runat="server" Text="Add" OnClick="Button1_Click" />
                             </div>
                             <div class="col-md-4">
-                                <asp:Button class="btn btn-primary w-100 btn-lg" ID="Button2" runat="server" Text="Update" />
+                                <asp:Button class="btn btn-primary w-100 btn-lg" ID="Button2" runat="server" Text="Update" OnClick="Button2_Click" />
                             </div>
                             <div class="col-md-4">
-                                <asp:Button class="btn btn-danger w-100 btn-lg" ID="Button3" runat="server" Text="Delete" />
+                                <asp:Button class="btn btn-danger w-100 btn-lg" ID="Button3" runat="server" Text="Delete" OnClick="Button3_Click" />
                             </div>
                         </div>
                     </div>
-                    <a href="homepage.aspx"><< Back to Home</a><br />
-                    <br />
                 </div>
+                <a class="link-underline-light" href="homepage.aspx"><< Back to Home</a><br /><br />
             </div>
 
             <div class="col-md-6">
@@ -212,8 +211,26 @@
                         <br />
 
                         <div class="row">
+                            <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:eLibraryDBConnectionString %>" SelectCommand="SELECT * FROM [BookMaster]"></asp:SqlDataSource>
                             <div class="col">
-                                <asp:GridView class="table table-striped" ID="GridView1" runat="server"></asp:GridView>
+                                <asp:GridView class="table table-striped" ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="BookId" DataSourceID="SqlDataSource1">
+                                    <Columns>
+                                        <asp:BoundField DataField="BookId" HeaderText="Book Id" ReadOnly="True" SortExpression="BookId" />
+                                        <asp:BoundField DataField="BookName" HeaderText="Book Name" SortExpression="BookName" />
+                                        <asp:BoundField DataField="genre" HeaderText="Genre" SortExpression="genre" />
+                                        <asp:BoundField DataField="AuthorName" HeaderText="Author Name" SortExpression="AuthorName" />
+                                        <asp:BoundField DataField="PublisherName" HeaderText="Publisher Name" SortExpression="PublisherName" />
+                                        <asp:BoundField DataField="PublishDate" HeaderText="Publish Date" SortExpression="PublishDate" />
+                                        <asp:BoundField DataField="Language" HeaderText="Language" SortExpression="Language" />
+                                        <asp:BoundField DataField="Edition" HeaderText="Edition" SortExpression="Edition" />
+                                        <asp:BoundField DataField="BookCost" HeaderText="BookCost" SortExpression="BookCost" />
+                                        <asp:BoundField DataField="NoOfPages" HeaderText="NoOfPages" SortExpression="NoOfPages" />
+                                        <asp:BoundField DataField="BookDescription" HeaderText="BookDescription" SortExpression="BookDescription" />
+                                        <asp:BoundField DataField="ActualStock" HeaderText="ActualStock" SortExpression="ActualStock" />
+                                        <asp:BoundField DataField="CurrentStock" HeaderText="CurrentStock" SortExpression="CurrentStock" />
+                                        <asp:BoundField DataField="BookImgLink" HeaderText="BookImgLink" SortExpression="BookImgLink" />
+                                    </Columns>
+                                </asp:GridView>
                             </div>
                         </div>
                         <br />
